@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+
+namespace FibonacciCalculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Create List
+            List<int> fibList = new List<int>();
+
+            //Get user input
+            Console.Write("First Number: ");
+            int num1 = int.Parse(Console.ReadLine());
+            Console.Write("Second Number: ");
+            int num2 = int.Parse(Console.ReadLine());
+            Console.Write("Count: ");
+            int count = int.Parse(Console.ReadLine());
+
+            //Invoke method
+            CreateFibSequence(num1, num2, count, fibList);
+
+            //Display
+            foreach (int i in fibList)
+            {
+                    Console.Write("{0}, ", i);
+            }
+            Console.ReadLine();
+        }
+
+        //Method to Create Fibonacci Sequence
+        public static void CreateFibSequence(int num1, int num2, int count, List<int> list)
+        {
+            list.Add(num1);
+            list.Add(num2);
+            int x;
+
+            for (int i = 0; i < count - 2; i++)
+            {
+                x = 0;
+                x = list[i] + list[i + 1];
+                list.Add(x);
+            }
+        }
+    }
+}
